@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="TempConverter.css">
+    </head>
+    <body>
+        <div id="container">
+            <h1>Temperature Converter</h1>
+            <div id="inp_blck">
+                <div class="block">
+                    <label for="cls">Celsius</label>
+                    <input id="cls" type="number" value="0">
+                </div>
+
+                <div class="block">
+                    <label for="fhr">Fahreniet</label>
+                    <input id="fhr" type="number" value="32">
+                </div>
+            </div>
+        </div>
+        <script>
+            var cel = document.getElementById("cls");
+            var fah = document.getElementById("fhr");
+
+            cel.addEventListener('input', function(){
+                let c = this.value;
+                let f = (c * 9/5) + 32;
+                if(!Number.isInteger(f)){
+                    f = f.toFixed(4);
+                }
+                fah.value = f;
+            })
+
+            fah.addEventListener('input', function(){
+                let f = this.value;
+                let c = (f - 32)*(5/9);
+                if(!Number.isInteger(c)){
+                    c = c.toFixed(6);
+                }
+                cel.value = c;
+            })
+        </script>
+    </body>
+</html>
